@@ -1,13 +1,13 @@
-import { initializeApp } from "firebase/app";
-import { getFirestore } from "firebase/firestore";
+import { initializeApp } from "firebase/app"
+import { getFirestore } from "firebase/firestore"
 
 const firebaseConfig = {
-    apiKey: "AIzaSyCPgy75bobkx-wntJNCEsc-aLgagw42AO8",
+    apiKey: process.env.apiKey,
     authDomain: "chat-app-84fd8.firebaseapp.com",
     projectId: "chat-app-84fd8",
     storageBucket: "chat-app-84fd8.appspot.com",
     messagingSenderId: "439819070091",
-    appId: "1:439819070091:web:1f1c2ca1461a848219428e",
+    appId: process.env.appID,
     measurementId: "G-PWKGVVSR0G"
 }
 

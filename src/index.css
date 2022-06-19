@@ -27,7 +27,7 @@ body {
     margin-left: 8px;
 }
 
-form {
+.inputMessageForm {
     bottom: 40px;
     position: absolute;
     padding: 0 4%;

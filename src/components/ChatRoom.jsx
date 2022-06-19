@@ -1,21 +1,20 @@
 import { collection, doc, setDoc, Timestamp } from 'firebase/firestore'
 import React from 'react'
 import Chat from './Chat'
-import Auth from './Auth'
 import db from './Firebase'
 
 const ChatRoom = () => {
   return (
     <>
         <Chat />
-        <MessageBox />
+        <TextBox />
     </>
   )
 }
 
-const MessageBox = () => {
+const TextBox = () => {
     return (
-        <form onSubmit={sendMessage}>
+        <form onSubmit={sendMessage} className='inputMessageForm'>
             <input type='text' id='textBox' placeholder='Send message' />
             <button type='submit'><i className="fa-regular fa-paper-plane"></i></button>
         </form>
@@ -29,7 +28,7 @@ const sendMessage = e => {
 
     if (msg.trim() !== '') {
         setDoc(doc(collection(db, 'messages')), {
-            uid: 'jadenlohh',
+            sender: 'jadenlohh',
             text: msg,
             createdAt: Timestamp.now()
         })

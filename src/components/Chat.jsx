@@ -14,13 +14,13 @@ const Chat = () => {
 
     return (
         <div className='chat'>
-            {messages.map(msg => <Message id={msg.uid} text={msg.text} createdAt={msg.createdAt} />)}
+            {messages.map(msg => <Message sender={msg.sender} text={msg.text} createdAt={msg.createdAt} />)}
         </div>
     )
 }
 
-const Message = ({id, text, createdAt}) => {
-    const messageType = id === 'jadenlohh' ? 'sent' : 'received'
+const Message = ({sender, text, createdAt}) => {
+    const messageType = sender === 'jadenlohh' ? 'sent' : 'received'
 
     var d = new Date(createdAt.seconds * 1000)
 
