@@ -8,13 +8,16 @@ const Chat = () => {
 
     useEffect(() => {
         onSnapshot(q, snapshots => {
-            setMessages(snapshots.docs.map(msg => msg.data()))
+            setMessages(snapshots.docs.map(msg => ({
+                ...msg.data(),
+                id: msg.id
+            })))
         })
     }, [])
 
     return (
         <div className='chat'>
-            {messages.map(msg => <Message sender={msg.sender} text={msg.text} createdAt={msg.createdAt} />)}
+            {messages.map(msg => <Message sender={msg.sender} text={msg.text} createdAt={msg.createdAt} key={msg.id} />)}
         </div>
     )
 }
